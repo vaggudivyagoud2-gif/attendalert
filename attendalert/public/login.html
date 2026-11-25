@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | PresentSir</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main style="max-width:360px;margin:15vh auto;padding:1rem">
+    <h2>PresentSir | AttendAlert</h2>
+    <input id="u" placeholder="Username" autocomplete="username"><br><br>
+    <input id="p" type="password" placeholder="Password" autocomplete="current-password"><br><br>
+    <button id="go">Login</button>
+    <p id="err" style="color:#c0392b"></p>
+  </main>
+  <script src="js/api.js"></script>
+  <script>
+    document.getElementById('go').onclick = async () => {
+      try {
+        await API.login(u.value, p.value);
+        location.href = 'index.html';
+      } catch (e) { err.textContent = e.message; }
+    };
+  </script>
+</body>
+</html>
